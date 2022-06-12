@@ -21,7 +21,7 @@ pub(crate) fn run() {
     let first_sub_numb = sub_arr[0];
 
     for org_index in 0..org_arr.len() {
-        // Tìm kiếm phần tử đầu tiên trong org_arr bằng với 0 ở sub.arr[0]
+        // Tìm kiếm phần tử trong org_arr bằng với sub.arr[0]
         if org_arr[org_index] == first_sub_numb {
             // Check từng phần tử tiếp theo trong sub_arr với org_arr theo đúng thứ tự
             for sub_index in 1..sub_arr.len() {
