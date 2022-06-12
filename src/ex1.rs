@@ -9,6 +9,7 @@ Ví dụ : let org_arr = [1, 2, 3, 5, 6, 8, 10, 11];
 
 
 pub(crate) fn run() {
+    println!();
     println!("[Exercise 1] Starting...");
 
     let org_arr = [1, 2, 3, 5, 6, 8, 10, 11];
@@ -18,20 +19,27 @@ pub(crate) fn run() {
     println!("Sub arr: {:?}", sub_arr);
 
     let mut is_contains = false;
-    let first_sub_numb = sub_arr[0];
 
-    for org_index in 0..org_arr.len() {
-        // Tìm kiếm phần tử trong org_arr bằng với sub.arr[0]
-        if org_arr[org_index] == first_sub_numb {
+    for i in 0..org_arr.len() {
+        // Tìm kiếm phần tử trong org_arr bằng với sub_arr[0]
+        if org_arr[i] == sub_arr[0] {
+            if sub_arr.len() == 1 {
+                is_contains = true;
+                break
+            }
+
             // Check từng phần tử tiếp theo trong sub_arr với org_arr theo đúng thứ tự
-            for sub_index in 1..sub_arr.len() {
+            for j in 1..sub_arr.len() {
+                if i + j >= org_arr.len() {
+                    break;
+                }
                 // break khỏi for loop khi giá trị ko bằng nhau
-                if org_arr[org_index + sub_index] != sub_arr[sub_index] {
+                if org_arr[i + j] != sub_arr[j] {
                     break;
                 }
 
                 // Khi toàn bộ phần tử ở sub_arr đều bằng ở org_arr, theo thứ tự
-                if sub_index == sub_arr.len() - 1 {
+                if j == sub_arr.len() - 1 {
                     is_contains = true;
                 }
             }
@@ -41,5 +49,5 @@ pub(crate) fn run() {
         }
     }
 
-    println!("Result:  {:?} {} {:?}", org_arr, (if is_contains {"CONTAINS"} else {"DOESN'T CONTAINS"}), sub_arr)
+    println!(">> Result:  {:?} {} {:?}", org_arr, (if is_contains { "CONTAINS" } else { "DOESN'T CONTAINS" }), sub_arr)
 }
