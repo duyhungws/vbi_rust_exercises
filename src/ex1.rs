@@ -36,6 +36,9 @@ pub(crate) fn run() {
                 }
             }
         }
+        if is_contains {
+            break;
+        }
     }
 
     println!("Result:  {:?} {} {:?}", org_arr, (if is_contains {"CONTAINS"} else {"DOESN'T CONTAINS"}), sub_arr)
